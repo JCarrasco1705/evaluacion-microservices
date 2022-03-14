@@ -1,0 +1,42 @@
+version: '3.3'
+services:
+  discovery-server:
+    image: jcarrascotoledo/eurkaserver:0.0.1-snapshot
+    ports:
+      - 8761:8761
+
+  admin-server:
+    image: jcarrascotoledo/admin-server:0.0.1-snapshot
+    ports:
+      - 8094:8094
+
+  postgres-service:
+    build: servicesData/postgresdb/
+    environment:
+      - POSTGRES_PASSWORD=secret
+    ports:
+      - 5432:5432
+    volumes:
+      - ./blockstorage/postgres:/var/lib/postgresql/data
+  registro-usuarios:
+    image: jcarrascotoledo/registrousuarios:0.0.1-snapshot
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-service:5432/coe_social
+      - SPRING_DATASOURCE_USERNAME=admin
+      - SPRING_DATASOURCE_PASSWORD=admin
+      #- EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka/
+    ports:
+      - "8091:8091"
+    depends_on:
+      - postgres-service
+  login:
+    image: jcarrascotoledo/login:0.0.1-snapshot
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-service:5432/coe_social_login
+      - SPRING_DATASOURCE_USERNAME=admin
+      - SPRING_DATASOURCE_PASSWORD=admin
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka/
+    ports:
+      - "8092:8092"
+    depends_on:
+      - postgres-service

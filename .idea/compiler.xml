@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="descovery-server" />
+        <module name="servergateway" />
+        <module name="login" />
+        <module name="adminservercoe" />
+        <module name="registrousuarios" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="admin" target="1.8" />
+      <module name="adminservercoe" target="1.8" />
+      <module name="demo" target="1.8" />
+      <module name="descovery-server" target="1.8" />
+      <module name="eurekaservice" target="1.8" />
+      <module name="example" target="1.8" />
+      <module name="login" target="1.8" />
+      <module name="registrousuarios" target="1.8" />
+      <module name="servergateway" target="1.8" />
+      <module name="spring-admin-server" target="1.8" />
+      <module name="spring-boot-admin" target="1.8" />
+      <module name="springadminserver" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="admin" options="-parameters" />
+      <module name="adminservercoe" options="-parameters" />
+      <module name="demo" options="-parameters" />
+      <module name="descovery-server" options="-parameters" />
+      <module name="eurekaservice" options="-parameters" />
+      <module name="example" options="-parameters" />
+      <module name="login" options="-parameters" />
+      <module name="registrousuarios" options="-parameters" />
+      <module name="servergateway" options="-parameters" />
+      <module name="spring-admin-server" options="" />
+      <module name="spring-boot-admin" options="-parameters" />
+      <module name="springadminserver" options="-parameters" />
+    </option>
+  </component>
+</project>

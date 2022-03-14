@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: registro
+          uri: lb://registro-usuarios
+          predicates:
+            - Path=/security/register/**
+          filters:
+            - StripPrefix=2
+
